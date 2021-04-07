@@ -5,12 +5,12 @@
     </header>
     <div class="movie-info-content">
       <div class="row">
-        <div class="col-4">
+        <div class="col-sm-12 col-md-4">
           <div class="movie-poster-wrap">
             <div class="movie-poster" :style="newPosterStyle"></div>
           </div>
         </div>
-        <div class="col-8">
+        <div class="col-sm-12 col-md-8">
           <h3 class="movie-title">{{ movie.Title }}</h3>
 
           <el-rate

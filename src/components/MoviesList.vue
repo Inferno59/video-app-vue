@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <h3 class="list-title">{{ listTitle }}</h3>
+
     <div class="row justify-content-center">
       <template v-if="isExist">
         <div class="col-sm-5 col-md-4 col-xl-3" v-for="(movie, key) in list" :key="key">
@@ -18,14 +19,15 @@
         </div>
       </template>
     </div>
-    <el-dialog
-      custom-class="movie-modal-body"
-      v-model="dialogVisible"
-      append-to-body="true"
-      modal="false"
-      :before-close="onCloseModal">
-      <MovieInfoModalContent :movie="selectedMovie" />
-    </el-dialog>
+    <div class="d-flex">
+      <el-dialog width="70%"
+        custom-class="movie-modal-body"
+        v-model="dialogVisible"
+        modal="true"
+        :before-close="onCloseModal">
+        <MovieInfoModalContent :movie="selectedMovie" />
+      </el-dialog>
+    </div>
   </div>
 </template>
 
