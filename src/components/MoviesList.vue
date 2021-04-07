@@ -19,15 +19,13 @@
         </div>
       </template>
     </div>
-    <div class="d-flex">
-      <el-dialog width="70%"
-        custom-class="movie-modal-body"
-        v-model="dialogVisible"
-        modal="true"
-        :before-close="onCloseModal">
-        <MovieInfoModalContent :movie="selectedMovie" />
-      </el-dialog>
-    </div>
+    <el-dialog :width="width"
+      custom-class="movie-modal-body"
+      v-model="dialogVisible"
+      modal="true"
+      :before-close="onCloseModal">
+      <MovieInfoModalContent :movie="selectedMovie" />
+    </el-dialog>
   </div>
 </template>
 
@@ -56,6 +54,14 @@ export default {
     const removeMovie = (id) => store.dispatch('movies/removeMovie', id);
     const dialogVisible = ref(false);
     const selectedMovieId = ref('');
+    const width = ref('');
+
+    // Method for getting width of client
+    const clientWidth = () => {
+      if (window.innerWidth < 800) { width.value = '80%'; } else { width.value = '60%'; }
+    };
+    clientWidth();
+    window.addEventListener('resize', clientWidth);
 
     function onMouseOver(poster) {
       emit('changePoster', poster);
@@ -65,9 +71,10 @@ export default {
       const isConfirmed = await ElMessageBox.confirm(
         `Are you sure want to delete ${title}. Continue?`,
         'Warning', {
+          customClass: 'message-box-width',
           confirmButtonText: 'OK',
           cancelButtonText: 'Cancel',
-          type: 'warning',
+          // type: 'warning',
         },
       ).then(() => {
         store.dispatch('showNotify', {
@@ -119,6 +126,7 @@ export default {
       dialogVisible,
       selectedMovie,
       onCloseModal,
+      width,
     };
   },
 };
@@ -144,5 +152,11 @@ export default {
   }
   .movie-modal-body .el-dialog__body{
     padding: 0px !important;
+  }
+
+  @media (max-width: 1000px) {
+    .message-box-width{
+      width: 300px !important;
+    }
   }
 </style>

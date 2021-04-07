@@ -7,16 +7,16 @@
           <span class="movie-year">{{ movie.Year }}</span>
         </div>
         <div class="movie-item-control row no-gutters">
-          <div class="col pr-2">
+          <div class="col-6 pr-2">
             <el-button
-              size="medium"
+              size="small"
               class="item-button"
               @click="emitInfoEvent"
             >Info</el-button>
           </div>
-          <div class="col pl-2" v-if="!isSearch">
+          <div class="col-6 pl-2" v-if="!isSearch">
             <el-button
-              size="medium"
+              size="small"
               class="item-button"
               @click="emitRemoveEvent"
             >Remove</el-button>

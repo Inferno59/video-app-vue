@@ -5,15 +5,15 @@
     </header>
     <div class="movie-info-content">
       <div class="row">
-        <div class="col-sm-12 col-md-4">
+        <div class="col-md-12 col-lg-4 mb-4">
           <div class="movie-poster-wrap">
             <div class="movie-poster" :style="newPosterStyle"></div>
           </div>
         </div>
-        <div class="col-sm-12 col-md-8">
+        <div class="col-md-12 col-lg-8">
           <h3 class="movie-title">{{ movie.Title }}</h3>
 
-          <el-rate
+          <el-rate class="movie-rate"
             v-model="numberRating"
             disabled
             show-score
@@ -22,11 +22,11 @@
             score-template="{value} / 10">
           </el-rate>
           <p class="movie-description">{{ movie.Plot }}</p>
-          <div class="mt-3 mb-4">
-            <el-tag effect="dark" type="success" class="mr-2">{{ movie.Year }}</el-tag>
-            <el-tag effect="dark" type="success" class="mr-2">{{ movie.Runtime }}</el-tag>
-            <el-tag effect="dark" type="success" class="mr-2">{{ movie.Genre }}</el-tag>
-            <el-tag effect="dark" type="success" class="mr-2">{{ movie.Language }}</el-tag>
+          <div class="movie-tags mt-3 mb-2">
+            <el-tag effect="dark" type="success" class="mr-2 mb-1">{{ movie.Year }}</el-tag>
+            <el-tag effect="dark" type="success" class="mr-2 mb-1">{{ movie.Runtime }}</el-tag>
+            <el-tag effect="dark" type="success" class="mr-2 mb-1">{{ movie.Language }}</el-tag>
+            <el-tag effect="dark" type="success" class="mr-2 mb-1">{{ movie.Genre }}</el-tag>
           </div>
           <table class="table small">
             <tbody>
@@ -130,7 +130,7 @@ export default {
     background-position: center center;
   }
   .movie-title{
-    font-size: 3,5rem;
+    font-size: 2rem;
     font-weight: 300;
   }
   .movie-description{
@@ -143,6 +143,25 @@ export default {
     -moz-hyphens: auto;
     -ms-hyphens: auto;
     hyphens: auto;
+  }
+
+  @media (max-width: 1000px) {
+    .movie-rate{
+      margin-bottom: 10px;
+    }
+    .movie-rate >>> .el-rate__item .el-rate__icon,
+    .movie-rate >>> .el-rate__text{
+      font-size: 12px;
+    }
+    .movie-title{
+      font-size: 1.5rem;
+    }
+    .movie-description{
+      font-size: 0.7rem;
+    }
+    .movie-tags >>> .el-tag{
+      font-size: 0.6rem;
+    }
   }
   /* .movie-info-content .movie-description {
     text-align: justify;
@@ -158,15 +177,21 @@ export default {
   }
 
   th{
-    width: 100px;
+    width: 95px;
   }
 
-  /* p{
+  td, th {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+
+  td{
     text-align: justify;
-    overflow-wrap: break-word;
     word-wrap: break-word;
+    word-break: break-word;
     -webkit-hyphens: auto;
+    -moz-hyphens: auto;
     -ms-hyphens: auto;
     hyphens: auto;
-  } */
+  }
 </style>
