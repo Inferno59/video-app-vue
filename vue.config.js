@@ -1,5 +1,7 @@
 module.exports = {
-  publicPath: process.env.NODE_ENV === 'production'
-    ? '/video-app-vue/'
-    : '/',
+  // publicPath: process.env.NODE_ENV === 'production'
+  //   ? '/'
+  //   : '/',
+  publicPath: './',
+  outputDir: 'dist',
 };
