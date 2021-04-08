@@ -1,7 +1,8 @@
 test*
 .DS_Store
 node_modules
-dist
+/dist
+.firebase
 
 package-lock.json
 
