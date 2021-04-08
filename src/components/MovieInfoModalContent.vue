@@ -131,11 +131,11 @@ export default {
   }
   .movie-title{
     font-size: 2rem;
-    font-weight: 300;
+    /* font-weight: 300; */
   }
   .movie-description{
     font-size: 1.25rem;
-    font-weight: 200;
+    /* font-weight: 200; */
     text-align: justify;
     word-wrap: break-word;
     word-break: break-word;
@@ -157,7 +157,7 @@ export default {
       font-size: 1.5rem;
     }
     .movie-description{
-      font-size: 0.7rem;
+      font-size: 1rem;
     }
     .movie-tags >>> .el-tag{
       font-size: 0.6rem;
