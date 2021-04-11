@@ -23,6 +23,6 @@ module.exports = {
       "ignoreUrls": true
     }],
     'arrow-body-style': 'off',
-    // 'eslint linebreak-style': ["error", "windows"],
+    'linebreak-style': ["error", "windows"],
   },
 };
